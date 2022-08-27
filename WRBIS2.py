@@ -15,12 +15,13 @@ class Image_Stitching():
         matcher = cv2.BFMatcher()
         raw_matches = matcher.knnMatch(des1, des2, k=2)
         good_points = []
-        good_matches=[]
+        good_matches = []
 
         for m1, m2 in raw_matches:
             if m1.distance < self.ratio * m2.distance:
                 good_points.append((m1.trainIdx, m1.queryIdx))
                 good_matches.append([m1])
+        print("____________________________________", len(good_matches), good_matches)
         img3 = cv2.drawMatchesKnn(img1, kp1, img2, kp2, good_matches, None, flags=2)
         cv2.imwrite('matching.jpg', img3)
         if len(good_points) > self.min_match:
