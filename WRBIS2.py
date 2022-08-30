@@ -71,8 +71,8 @@ class Image_Stitching():
         final_result = result[min_row:max_row, min_col:max_col, :]
         return final_result
 def main():
-    img1 = cv2.imread('img1.png')
-    img2 = cv2.imread('img2.png')
+    img1 = cv2.imread('img1.jpg')
+    img2 = cv2.imread('img2.jpg')
     final=Image_Stitching().blending(img1,img2)
     cv2.imwrite('panorama.jpg', final)
 if __name__ == '__main__':
