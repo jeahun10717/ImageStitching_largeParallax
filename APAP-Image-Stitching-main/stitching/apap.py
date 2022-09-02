@@ -76,8 +76,7 @@ class Apap(Homography):
         target /= target[2]
         return target
 
-    def local_warp(self, ori_img: np.ndarray, local_homography: np.ndarray, mesh: np.ndarray,
-                   progress=False) -> np.ndarray:
+    def local_warp(self, ori_img: np.ndarray, local_homography: np.ndarray, mesh: np.ndarray,  progress=False) -> np.ndarray:
         """
         this method requires improvement with the numpy algorithm (because of speed)
 
